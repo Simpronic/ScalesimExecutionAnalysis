@@ -1,0 +1,7 @@
+nome,numero di livelli,tempo di esecuzione
+deep_voice,3,0.7185766696929932
+FasterRCNN,46,558.1911036968231
+Googlenet,58,225.93832659721375
+google_translate_dec,8,1.7031562328338623
+google_translate_enc,9,1.8905611038208008
+Resnet50,54,578.3742156028748
