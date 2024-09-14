@@ -4,7 +4,7 @@ Analisi dei tempi di esecuzioni di vari modelli di reti IA con il simulatore Sca
 
 USAGE
 
-py models_simulation_ss <SCALESIM_VERSION> <MODELS_FOLDER>
+py models_simulation_ss <SCALESIM_VERSION> <MODELS_FOLDER> <CFG_PATH>
 
 CHANGES
 
