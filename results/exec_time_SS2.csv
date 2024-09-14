@@ -1,7 +1,7 @@
-nome,numero di livelli,tempo di esecuzione
-deep_voice,3,2.2344303131103516
-FasterRCNN,46,876.9024722576141
-Googlenet,58,305.0637397766113
-google_translate_dec,8,4.031276226043701
-google_translate_enc,9,4.562436580657959
-Resnet50,54,903.0606796741486
+nome,numero di livelli,tempo di esecuzione,Grandezza massima file generato,Grandezza medie files generati
+deep_voice,6,2.296844005584717,246,129
+FasterRCNN,49,902.3533220291138,162813,6638
+Googlenet,61,312.5894982814789,48624,1983
+google_translate_dec,11,4.7499940395355225,246,129
+google_translate_enc,12,4.968778610229492,246,129
+Resnet50,57,923.3267211914062,32729,6112
