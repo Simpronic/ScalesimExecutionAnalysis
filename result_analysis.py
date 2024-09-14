@@ -91,7 +91,7 @@ bar2 = ax.bar(ind + width/2, max_f_weight_2, width, label='ScaleSimV2', color='l
 ax.set_xticks(ind)
 ax.set_yscale('log')
 ax.set_xticklabels(df2['nome'], rotation=45, ha='right')
-plt.title("Grandezza massima file generato")
+plt.title("Grandezza media file generato")
 plt.xlabel("Model")
 plt.ylabel("grandezza KB")
 
