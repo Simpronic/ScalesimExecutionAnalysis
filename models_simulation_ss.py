@@ -116,12 +116,13 @@ def startSimulation_SS1(cfg_path,topologyFolder,result_file):
     writeDataOnCSV(data_array,result_file+"_SS1.csv")
 
 if __name__ == "__main__":
-    if(len(sys.argv)-1 < 2): 
-        print("HELP: type python model_simulation val1 val2")
+    if(len(sys.argv)-1 < 3): 
+        print("HELP: type python model_simulation val1 val2 val3")
         exit()
     ss_version = sys.argv[1]
     topology_f = sys.argv[2]
+    cfg_path = sys.argv[3]
     if(ss_version == 'SS1'):
-     startSimulation_SS1("cfg/ss1/scale_config_64x64_os.cfg",topology_f,"exec_time")
+     startSimulation_SS1(cfg_path,topology_f,"exec_time")
     elif(ss_version == 'SS2'):
-     startSimulation_SS2("cfg/ss2/scale_config_64x64_os.cfg",topology_f,"exec_time")
+     startSimulation_SS2(cfg_path,topology_f,"exec_time")
