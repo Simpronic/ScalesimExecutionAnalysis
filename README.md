@@ -16,3 +16,4 @@ NOTE
 - results is the result folder where we can find csv files with the execution time
 - To recreate graphs we can use result_analysis.py
 - to reproduce the experiments change the scale.py file with my scale.py in DRAMA_ScaleSim/
+- To Run Statistical Analysis use analisistatistica_scalesimreport.py, the data are in report_syntesis folder
