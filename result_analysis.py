@@ -18,15 +18,15 @@ df2 = pd.read_csv('exec_time_SS2.csv').sort_values(by='numero di livelli')
 
 df2.head()
 
-exec_time_log_1 = np.log(df1["tempo di esecuzione"])
-exec_time_log_2 = np.log(df2["tempo di esecuzione"])
+exec_time_log_1 = (df1["tempo di esecuzione"])
+exec_time_log_2 = (df2["tempo di esecuzione"])
 
 plt.bar(df1['nome'], exec_time_log_1, color='skyblue')
 plt.yscale('log')
 plt.xticks(rotation=45, ha='right')
 plt.title("Tempi di Esecuzione per Modello in log-scale")
 plt.xlabel("Model")
-plt.ylabel("Tempo di Esecuzione (s)")
+plt.ylabel("Tempo di Esecuzione ")
 
 plt.show()
 
@@ -36,6 +36,29 @@ plt.yscale('log')
 plt.title("Tempi di Esecuzione per Modello in log-scale")
 plt.xlabel("Model")
 plt.ylabel("Tempo di Esecuzione (s)")
+
+plt.show()
+
+exec_time_log_1 /= 60
+exec_time_log_2 /= 60
+
+n = len(df2['nome'])
+ind = np.arange(n)
+width = 0.35
+fig, ax = plt.subplots()
+
+bar1 = ax.bar(ind - width/2, exec_time_log_1, width, label='ScaleSimV1', color='skyblue')
+
+# Barre del secondo dataset
+bar2 = ax.bar(ind + width/2, exec_time_log_2, width, label='ScaleSimV2', color='lightgreen')
+
+ax.set_xticks(ind)
+ax.set_xticklabels(df2['nome'], rotation=45, ha='right')
+plt.title("Tempi di esecuzione")
+plt.xlabel("Model")
+plt.ylabel("Tempo di esecuzione (min)")
+
+plt.legend()
 
 plt.show()
 
@@ -52,15 +75,15 @@ plt.show()
 #np.log10()
 max_f_weight_1 = df1["Grandezza massima file generato"]
 max_f_weight_2 = df2["Grandezza massima file generato"]
-avg_f_weight_1 = df1["Grandezza massima file generato"]
-avg_f_weight_2 = df2["Grandezza massima file generato"]
+avg_f_weight_1 = df1["Grandezza medie files generati"]
+avg_f_weight_2 = (df2["Peso totale artefatti"] / 1024)/(df2["Numero di file generati"]*df2["numero di livelli"])
+print(avg_f_weight_2 )
 
 n = len(df2['nome'])
 ind = np.arange(n)
 width = 0.35
 fig, ax = plt.subplots()
 
-plt.bar(df2['nome'], max_f_weight_1, color='skyblue')
 bar1 = ax.bar(ind - width/2, avg_f_weight_1, width, label='ScaleSimV1', color='skyblue')
 
 # Barre del secondo dataset
@@ -82,7 +105,6 @@ ind = np.arange(n)
 width = 0.35
 fig, ax = plt.subplots()
 
-plt.bar(df2['nome'], max_f_weight_1, color='skyblue')
 bar1 = ax.bar(ind - width/2, max_f_weight_1, width, label='ScaleSimV1', color='skyblue')
 
 # Barre del secondo dataset
@@ -109,4 +131,53 @@ plt.xlabel("Livelli")
 plt.ylabel("grandezza kb")
 
 # Mostra il grafico
+plt.show()
+
+"""Faccio una analisi sul peso totale degli artefatti"""
+
+n_artifacts_1 = df1["Numero di file generati"]
+n_artifacts_2 = df2["Numero di file generati"] * df2["numero di livelli"]
+sum_artifacts_1 = df1["Peso totale artefatti"]
+sum_artifacts_2 = df2["Peso totale artefatti"]
+
+n = len(df2['nome'])
+ind = np.arange(n)
+width = 0.35
+fig, ax = plt.subplots()
+
+bar1 = ax.bar(ind - width/2, n_artifacts_1, width, label='ScaleSimV1', color='skyblue')
+
+# Barre del secondo dataset
+bar2 = ax.bar(ind + width/2, n_artifacts_2, width, label='ScaleSimV2', color='lightgreen')
+
+ax.set_xticks(ind)
+ax.set_yscale('log')
+ax.set_xticklabels(df2['nome'], rotation=45, ha='right')
+plt.title("Numero file generati")
+plt.xlabel("Model")
+plt.ylabel("grandezza KB")
+
+plt.legend()
+
+plt.show()
+
+n = len(df2['nome'])
+ind = np.arange(n)
+width = 0.35
+fig, ax = plt.subplots()
+
+bar1 = ax.bar(ind - width/2, sum_artifacts_1, width, label='ScaleSimV1', color='skyblue')
+
+# Barre del secondo dataset
+bar2 = ax.bar(ind + width/2, sum_artifacts_2, width, label='ScaleSimV2', color='lightgreen')
+
+ax.set_xticks(ind)
+ax.set_yscale('log')
+ax.set_xticklabels(df2['nome'], rotation=45, ha='right')
+plt.title("Somma totale files generati")
+plt.xlabel("Model")
+plt.ylabel("grandezza KB")
+
+plt.legend()
+
 plt.show()
